@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tile Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            gap: 20px;
+            grid-template-columns: 1fr 2fr;
+            place-content: center;
+        }
+
+        #colors {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 100vh;
+            gap: 20px;
+            overflow-x: scroll;
+        }
+
+        .color-swatch {
+            width: 90px;
+            aspect-ratio: 1;
+            border-radius: 5px;
+
+            &.selected {
+                border: 5px solid white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas width="800" height="800" id="canvas"></canvas>
+        <button onclick="generateList()">Export</button>
+        <button onclick="fill()">Fill</button>
+        <button onclick="importString(prompt('Enter Code:', ''))">Import</button>
+        <button onclick="save()">Save</button>
+        <button onclick="load()">Load</button>
+        <button onclick="exportAll()">Export All</button>
+    </div>
+    <div id="colors">
+    </div>
+    <script src="js/colors.js"></script>
+    <script src="js/tileMaker.js"></script>
+</body>
+</html>
